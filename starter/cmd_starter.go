@@ -36,8 +36,8 @@ func NewCLICommand() *cobra.Command {
 	config.Seal()
 
 	rootCmd := &cobra.Command{
-		Use:   "hccli",
-		Short: "hellochain Client",
+		Use:   "tcli",
+		Short: "tienchain Client",
 	}
 
 	rootCmd.PersistentFlags().String(client.FlagChainID, "", "Chain ID of tendermint node")

@@ -37,7 +37,7 @@ var (
 	}
 )
 
-//AppStarter is a drop in to make simple hello world blockchains
+//AppStarter is a drop in to make simple real world blockchains
 
 func init() {
 	ModuleBasics = module.NewBasicManager(

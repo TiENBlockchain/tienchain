@@ -8,7 +8,7 @@ import (
 	greeter "github.com/shikhardb/tienchain/x/greeter/internal/types"
 )
 
-// query endpoints supported by the hellochain Querier
+// query endpoints supported by the tienchain Querier
 const (
 	ListGreetings = "list"
 )
