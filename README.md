@@ -19,12 +19,3 @@ tcli config output json
 tcli config indent true
 tcli config trust-node true
 
-# Add new accounts to genesis file
-tcli keys add jack
-tcli keys add alice
-tcd add-genesis-account $(tcli keys show alice -a) 1000hellotoken,100000000stake
-tcd add-genesis-account $(tcli keys show jack -a) 1000hellotoken,100000000stake
-
-# Start the chain
-tcd start
-```
