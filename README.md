@@ -6,9 +6,9 @@ In this tutorial we will build a fully-functional Tienchain application on a blo
 
 ## Building and running the example
 
-# Initialize configuration files and genesis file
-  # moniker is the name of your node
+### Initialize configuration files and genesis file
 
+moniker is the name of your node
 nsd init <moniker> --chain-id tienchain
 
 
