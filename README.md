@@ -6,20 +6,11 @@ In this tutorial we will build a fully-functional Tienchain application on a blo
 
 ## Building and running the TienChain
 
-Go inside the file where you have cloned the repository and open terminal.
-
-##### Install the app into your $GOBIN
-make install
-
-##### Now you should be able to run the following commands:
-nsd help
-
-nscli help
 
 #### Initialize configuration files and genesis file
 
-
-nsd init node1 --chain-id tienchain
+moniker- name of node
+nsd init moniker --chain-id tienchain
 
 nscli keys add jack
 
@@ -27,9 +18,9 @@ nscli keys add alice
 
 #### Add both accounts, with coins to the genesis file
 
-nsd add-genesis-account $(nscli keys show jack -a) 1000tien,100000000t8t
+nsd add-genesis-account $(nscli keys show jack) 1000tien,100000000t8t
 
-nsd add-genesis-account $(nscli keys show alice -a) 1000tien,100000000t8t
+nsd add-genesis-account $(nscli keys show alice) 1000tien,100000000t8t
 
 #### Configure your CLI to eliminate need for chain-id flag
 
@@ -40,12 +31,6 @@ nscli config output json
 nscli config indent true
 
 nscli config trust-node true
-
-nsd gentx --name jack --amount 100000000t8t
-
-nsd collect-gentxs
-
-nsd validate-genesis
 
 nsd start
 
