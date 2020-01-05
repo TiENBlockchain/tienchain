@@ -13,6 +13,7 @@ make install
 
 ##### Now you should be able to run the following commands:
 nsd help
+
 nscli help
 
 #### Initialize configuration files and genesis file
