@@ -58,5 +58,8 @@ nscli query account $(nscli keys show alice -a)
 ### And to send coins from one account to another...
 
 ###### Usage: nscli tx send [from_key_or_address] [to_address] [amount] [flags]
+nscli tx send $(nscli keys show alice -a) $(nscli keys show jack -a) 500tien,100000t8t
 
-$ nscli tx send $(nscli keys show alice -a) $(nscli keys show jack -a) 500tien,100000t8t
+###### Now its time to start the rest-server in another terminal window:
+
+nscli rest-server --chain-id tienchain --trust-node
