@@ -8,6 +8,7 @@ In this tutorial we will build a fully-functional Tienchain application on a blo
 
 # Initialize configuration files and genesis file
   # moniker is the name of your node
+
 nsd init <moniker> --chain-id tienchain
 
 
@@ -19,10 +20,12 @@ nscli keys add jack
 nscli keys add alice
 
 # Add both accounts, with coins to the genesis file
+
 nsd add-genesis-account $(nscli keys show jack -a) 1000tien,100000000t8t
 nsd add-genesis-account $(nscli keys show alice -a) 1000tien,100000000t8t
 
 # Configure your CLI to eliminate need for chain-id flag
+
 nscli config chain-id tienchain
 nscli config output json
 nscli config indent true
@@ -37,6 +40,7 @@ nsd validate-genesis
 nsd start
 
 # First check the accounts to ensure they have funds
+
 nscli query account $(nscli keys show jack -a)
 nscli query account $(nscli keys show alice -a)
 
