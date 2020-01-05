@@ -19,6 +19,7 @@ nscli keys add alice
 #### Add both accounts, with coins to the genesis file
 
 nsd add-genesis-account $(nscli keys show jack -a) 1000tien,100000000t8t
+
 nsd add-genesis-account $(nscli keys show alice -a) 1000tien,100000000t8t
 
 #### Configure your CLI to eliminate need for chain-id flag
@@ -39,13 +40,14 @@ nsd validate-genesis
 
 nsd start
 
-# First check the accounts to ensure they have funds
+#### First check the accounts to ensure they have funds
 
 nscli query account $(nscli keys show jack -a)
+
 nscli query account $(nscli keys show alice -a)
 
 And to send coins from one account to another...
 
-# Usage: nscli tx send [from_key_or_address] [to_address] [amount] [flags]
+#### Usage: nscli tx send [from_key_or_address] [to_address] [amount] [flags]
 
 $ nscli tx send $(nscli keys show alice -a) $(nscli keys show jack -a) 500tien,100000t8t
