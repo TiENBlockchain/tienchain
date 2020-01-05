@@ -18,9 +18,8 @@ nscli help
 
 #### Initialize configuration files and genesis file
 
-moniker is the name of your node
 
-nsd init <moniker> --chain-id tienchain
+nsd init node1 --chain-id tienchain
 
 nscli keys add jack
 
