@@ -1,16 +1,47 @@
-# Nameservice Application Tutorial
+# TienChain Application Tutorial
 
-In this tutorial we will build a fully-functional nameservice application on a blockchain with the Cosmos SDK
+In this tutorial we will build a fully-functional Tienchain application on a blockchain with the Cosmos SDK
 
 
-**[Click here](./tutorial/00-intro.md)** to start the tutorial. You can also view it on the [website](https://tutorials.cosmos.network/).
 
 ## Building and running the example
 
-If you are on the website, you can [find the code here on Github](https:://www.github.com/cosmos/sdk-tutorials)
-**[Click here](./tutorial/21-build-run.md)** for instructions on how to build and run the code.
+# Initialize configuration files and genesis file
+  # moniker is the name of your node
+nsd init <moniker> --chain-id tienchain
 
-Translations:
-- [中文](./README_cn.md)
 
-## [Slides](https://docs.google.com/presentation/d/1aCMAdkVY-gfgnGNPTygwVk3o68czPQ_VYfvdMy9Ek5Q/edit?usp=sharing)
+# Copy the `Address` output here and save it for later use
+# [optional] add "--ledger" at the end to use a Ledger Nano S
+nscli keys add jack
+
+# Copy the `Address` output here and save it for later use
+nscli keys add alice
+
+# Add both accounts, with coins to the genesis file
+nsd add-genesis-account $(nscli keys show jack -a) 1000tien,100000000t8t
+nsd add-genesis-account $(nscli keys show alice -a) 1000tien,100000000t8t
+
+# Configure your CLI to eliminate need for chain-id flag
+nscli config chain-id tienchain
+nscli config output json
+nscli config indent true
+nscli config trust-node true
+
+nsd gentx --name jack --amount 100000000t8t
+
+nsd collect-gentxs
+
+nsd validate-genesis
+
+nsd start
+
+# First check the accounts to ensure they have funds
+nscli query account $(nscli keys show jack -a)
+nscli query account $(nscli keys show alice -a)
+
+And to send coins from one account to another...
+
+# Usage: nscli tx send [from_key_or_address] [to_address] [amount] [flags]
+
+$ nscli tx send $(nscli keys show alice -a) $(nscli keys show jack -a) 500tien,100000t8t
