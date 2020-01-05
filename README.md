@@ -4,7 +4,16 @@ In this tutorial we will build a fully-functional Tienchain application on a blo
 
 
 
-## Building and running the example
+## Building and running the TienChain
+
+Go inside the file where you have cloned the repository and open terminal.
+
+##### Install the app into your $GOBIN
+make install
+
+##### Now you should be able to run the following commands:
+nsd help
+nscli help
 
 #### Initialize configuration files and genesis file
 
