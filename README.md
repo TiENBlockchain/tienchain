@@ -48,4 +48,4 @@ nscli tx send $(nscli keys show alice -a) $(nscli keys show jack -a) 500tien,100
 ###### Now its time to start the rest-server in another terminal window:
 
 nscli rest-server --chain-id tienchain --trust-node.
-Done
+
